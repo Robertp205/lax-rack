@@ -1,8 +1,16 @@
 {
   "name": "lax-rack",
   "version": "0.1.0",
+  "proxy": "http://localhost:8080",
+  "main": "server/index.js",
   "private": true,
   "dependencies": {
+    "chalk": "^2.4.2",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express-session": "^1.16.2",
+    "expresss": "0.0.0",
+    "massive": "^6.1.0",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-scripts": "3.1.2"
