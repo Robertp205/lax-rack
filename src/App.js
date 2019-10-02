@@ -1,19 +1,16 @@
 import React, { Component } from 'react'
 import './App.css';
-import Auth from './Components/Auth/Auth';
 import Nav from './Components/Nav/Nav';
-import Form from './Components/Form/Form';
-import Dashboard from './Components/Dashboard/Dashboard';
 
+import router from './utils/router'
 
 export default class App extends Component {
   render() {
     return (
-      <div>
-        <Auth/>
+      <div className='app'>
         <Nav/>
-        <Form/>
-        <Dashboard/>
+        {router}
+        
       </div>
     )
   }

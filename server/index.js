@@ -6,6 +6,7 @@ const express = require('express'),
         chalk = require('chalk')
 
 const authCTRL = require('./controllers/authController')
+const prodCTRL = require('./controllers/productControllers')
 
 const {
     SERVER_PORT,
@@ -26,9 +27,15 @@ app.use(session({
     }
 }))
 
+// ENDPOINTS
+app.get('/api/helmets', prodCTRL.getHelmets)
+
+
+
+
 massive(CONNECTION_STRING)
-    .then(dbInstance =>{
-        app.set('db', dbInstance);
+    .then(db =>{
+        app.set('db', db);
         console.log(chalk.cyan('database is connected'));
         
     })

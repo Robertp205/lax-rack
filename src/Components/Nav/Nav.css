@@ -1,0 +1,28 @@
+.navbar{
+    width: 100vw;
+    height: 10vh;
+    background: tomato;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center
+}
+.btn{
+    border-radius: 50%;
+    height: 5vh
+}
+
+.words{
+    font-size: 50px;
+    margin-left: 4vw
+}
+
+.btn-box{
+    height: 10vh;
+    width: 20vw;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    margin-right: 4vw;
+    align-items: center
+}
