@@ -12,3 +12,9 @@
    color: whitesmoke 
     
 }
+
+.add-cancel-btn{
+    display: flex;
+    flex-direction: row
+    
+}

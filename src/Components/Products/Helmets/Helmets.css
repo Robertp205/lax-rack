@@ -1,0 +1,40 @@
+.boxes{
+    /* width: 10vw;
+    height: 30vh;
+    background: whitesmoke;
+    color: brown;
+    margin-left: 40px;
+    margin-top: 40px */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 5px solid black;
+    color: whitesmoke
+} 
+.boxes img {
+    width: auto;
+
+  height: 300px;
+}
+
+.in-box{
+    
+
+        /* width: 230px; */
+      
+        overflow: hidden;
+      
+        height: 250px;
+      
+        display: flex;
+      
+        flex-direction: column;
+      
+        justify-content: space-between;
+      
+      
+}

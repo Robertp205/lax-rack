@@ -1,22 +1,21 @@
 import React, { Component } from "react";
 import axios from "axios";
+import './Helmets.css'
 
 export default class Helmets extends Component {
   constructor(props) {
     super(props);
     this.state = {
       helmets: [],
-      img: "",
-      brand: "",
-      name: "",
-      used: Boolean,
-      price: 0
+      
     };
+    console.log(this.state);
+    
   }
 
       componentDidMount=()=>{
 
-            axios.get('/api/helmets')
+            axios.get('/api/helmet')
     
             .then(res =>{
     
@@ -45,19 +44,25 @@ export default class Helmets extends Component {
 //   }
 
   render() {
-    const mappedHelmets = this.state.helmets.map(element => {
+    const mappedHelmets = this.state.helmets.map(helmet => {
       return (
-        <div key={element.id} deleteListing={this.deleteListing}>
-          <p>Image: {element.img}</p>
-          <p> Brand:: {element.brsnd}</p>
-          <p> Name: {element.name}</p>
-          <p> used: {element.used}</p>
-          <p> Price: {element.price}</p>
+        <div key={helmet.id} deleteListing={this.deleteListing} className='boxes'>
+          <div className='img-box'>
+          <img src={helmet.img} alt={helmet.img} />
+
+          </div>
+          <div className='in-box'>
+          <p> Brand: {helmet.brand}</p>
+          <p> Name: {helmet.name}</p>
+          <p> used: {helmet.used}</p>
+          <p> Price: {helmet.price}</p>
+
           <button>Delete</button>
+          </div>
         </div>
       );
     });
-    console.log('o2');
-    return <div>{mappedHelmets}</div>;
+    
+    return <div className='yeet' >{mappedHelmets}</div>;
   }
 }

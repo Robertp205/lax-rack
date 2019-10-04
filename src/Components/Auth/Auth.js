@@ -6,6 +6,7 @@ export default class Auth extends Component {
   render() {
     return (
       <div className='auth-box'>
+        <h1>LAX RACK</h1>
         <div className="auth-items">
           <p>Username:</p>
           <input />

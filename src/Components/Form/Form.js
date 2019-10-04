@@ -10,16 +10,16 @@ export default class Form extends Component {
       shafts: [],
       heads: [],
       elbows: [],
-      img: '',
-      brand: '',
-      name:'',
+      img: "",
+      brand: "",
+      name: "",
       used: Boolean,
       price: 0
     };
   }
   handleChange = async (e, key) => {
     console.log(this.state);
-    
+
     this.setState({
       [key]: e.target.value
     });
@@ -27,22 +27,51 @@ export default class Form extends Component {
 
   render() {
     return (
-      <div className='form-box'>
+      <div className="form-box">
         <div className="authimps">
           <h1>LAX RACK</h1>
-          {/* NEED TO PUT DROPDOWN BAR WITH THE 6 TABLES */}
-          <input placeholder="Dropdown Bar" onChange={e=>this.handleChange(e,'helmets')} />
+          {/* NEED  */}
+          <p>
+            <select className="dropdown" name='yeet' size="1" placeholder=" ">
+              
+              <option value="helmets">Helmets</option>
+              <option value="shoulder_pads">SHoulder Pads</option>
+              <option value="elbows">Elbow Guards</option>
+              <option value="gloves">Gloves</option>
+              <option value="heads">Heads</option>
+              <option value="shafts">Shafts</option>
+            </select>
+          </p>
           <h3>Image Url</h3>
-          <input placeholder="img" onChange={e=>this.handleChange(e,'img')} />
+          <input
+            placeholder="img"
+            onChange={e => this.handleChange(e, "img")}
+          />
           <h3>Brand:</h3>
-          <input placeholder="Brand" onChange={e=>this.handleChange(e,'brand')} />
+          <input
+            placeholder="Brand"
+            onChange={e => this.handleChange(e, "brand")}
+          />
           <h3>Name:</h3>
-          <input placeholder="Name" onChange={e=>this.handleChange(e,'name')} />
+          <input
+            placeholder="Name"
+            onChange={e => this.handleChange(e, "name")}
+          />
           {/* DROPDOWN FOR BOOLEAN AS WELL */}
           <h3>New or Used</h3>
-          <input placeholder="used" onChange={e=>this.handleChange(e,'used')} />
+          <input
+            placeholder="used"
+            onChange={e => this.handleChange(e, "used")}
+          />
           <h3>Price</h3>
-          <input placeholder="Price" onChange={e=>this.handleChange(e,'price')} />
+          <input
+            placeholder="Price"
+            onChange={e => this.handleChange(e, "price")}
+          />
+        </div>
+        <div className="add-cancel-btn">
+          <button>cancel</button>
+          <button>Add</button>
         </div>
       </div>
     );

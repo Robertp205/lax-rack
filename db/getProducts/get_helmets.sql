@@ -1,1 +1,1 @@
-select * from helmets
+select * from helmets;

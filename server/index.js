@@ -28,7 +28,7 @@ app.use(session({
 }))
 
 // ENDPOINTS
-app.get('/api/helmets', prodCTRL.getHelmets)
+app.get('/api/helmet', prodCTRL.getHelmets)
 
 
 
