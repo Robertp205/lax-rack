@@ -32,9 +32,9 @@ export default class Form extends Component {
           <h1>LAX RACK</h1>
           {/* NEED  */}
           <p>
-            <select className="dropdown" name='yeet' size="1" placeholder=" ">
-              
-              <option value="helmets">Helmets</option>
+            <select className="dropdown" name='yeet' >
+              <option> </option>
+              <option onClick={e => this.handleChange(e, "helmets")} value="helmets">Helmets</option>
               <option value="shoulder_pads">SHoulder Pads</option>
               <option value="elbows">Elbow Guards</option>
               <option value="gloves">Gloves</option>

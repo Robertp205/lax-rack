@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 import "./Nav.css";
 import { Link } from "react-router-dom";
+import {NavLink} from 'react-router-dom'
+
+
+
+
+
+const linkStyle = {
+    color: 'yellow'
+    
+};
 
 export default class Nav extends Component {
   
@@ -8,9 +18,9 @@ export default class Nav extends Component {
     return (
       <div className="navbar">
         <div className='words'>
-          <Link to="/dashboard">
+        <NavLink style={linkStyle} exact to='/dashboard' activeClassName="active">
             <p>LAX RACK</p>
-          </Link>
+          </NavLink>
         </div>
 
         <div className="btn-box">
@@ -19,7 +29,7 @@ export default class Nav extends Component {
           </Link>
 
           <Link  to='/'>
-          <button className="btn">profile</button>
+          <button className="btn">Logout</button>
           </Link>
 
         </div>

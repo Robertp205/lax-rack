@@ -11,7 +11,7 @@ class App extends Component {
     const navigation = this.props.location.pathname
     let comp
 
-    if(navigation === '/'){
+    if(navigation === '/' || navigation === '/register' ){
       comp = null
     } else {comp = <Nav/>}
 

@@ -9,31 +9,31 @@ export default class Helmets extends Component {
       helmets: [],
       
     };
-    console.log(this.state);
+    
     
   }
 
       componentDidMount=()=>{
 
             axios.get('/api/helmet')
-    
             .then(res =>{
-    
                 this.setState({
-    
                     helmets: res.data
-    
                 })
-    
             })
-    
             .catch(err =>{
-    
                 console.log(err)
-    
             })
     
         }
+
+        deleteHelmets = id => {
+          axios.delete(`/api/helmet/${id}`).then(response => {
+            this.setState({
+              houses: response.data
+            });
+          });
+        };
 
 //   async componentDidMount() {
 //     const helmets = await axios.get("/api/helmets");
@@ -46,7 +46,7 @@ export default class Helmets extends Component {
   render() {
     const mappedHelmets = this.state.helmets.map(helmet => {
       return (
-        <div key={helmet.id} deleteListing={this.deleteListing} className='boxes'>
+        <div key={helmet.id} deleteHelmets={this.deleteHelmets} className='boxes'>
           <div className='img-box'>
           <img src={helmet.img} alt={helmet.img} />
 
@@ -57,6 +57,7 @@ export default class Helmets extends Component {
           <p> used: {helmet.used}</p>
           <p> Price: {helmet.price}</p>
 
+          <button>Update</button>
           <button>Delete</button>
           </div>
         </div>

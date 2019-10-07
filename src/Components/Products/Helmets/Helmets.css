@@ -26,15 +26,19 @@
 
         /* width: 230px; */
       
-        overflow: hidden;
+        /* overflow: hidden;8 */
       
-        height: 250px;
+        height: 300px;
       
         display: flex;
       
         flex-direction: column;
       
         justify-content: space-between;
+        align-items: center
       
       
+}
+.inbox > btn{
+  margin-top: 30px
 }

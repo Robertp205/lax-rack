@@ -29,8 +29,11 @@ app.use(session({
 
 // ENDPOINTS
 app.get('/api/helmet', prodCTRL.getHelmets)
-
-
+app.get('/api/shoulders', prodCTRL.getShoulders)
+app.get('/api/shafts' ,prodCTRL.getShafts)
+app.get('/api/heads', prodCTRL.getHeads)
+app.get('/api/gloves', prodCTRL.getGloves)
+app.get('/api/elbows', prodCTRL.getElbows)
 
 
 massive(CONNECTION_STRING)
