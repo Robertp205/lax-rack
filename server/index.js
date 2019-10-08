@@ -35,6 +35,13 @@ app.get('/api/heads', prodCTRL.getHeads)
 app.get('/api/gloves', prodCTRL.getGloves)
 app.get('/api/elbows', prodCTRL.getElbows)
 
+app.delete('/api/heads/:id', prodCTRL.deleteHeads)
+app.delete('/api/shoulders/:id', prodCTRL.deleteShoulder)
+app.delete('/api/gloves/:id', prodCTRL.deleteGloves)
+app.delete('/api/helmet/:id', prodCTRL.deleteHelmets)
+app.delete('/api/shafts/:id',prodCTRL.deleteShafts)
+app.delete('/api/elbows/:id',prodCTRL.deleteElbows)
+
 
 massive(CONNECTION_STRING)
     .then(db =>{

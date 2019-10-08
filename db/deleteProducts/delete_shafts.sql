@@ -1,0 +1,1 @@
+DELETE FROM shafts where id = $1

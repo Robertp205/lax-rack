@@ -1,0 +1,1 @@
+DELETE FROM helmets WHERE id = $1

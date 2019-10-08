@@ -1,0 +1,1 @@
+DELETE FROM elbows Where id = $1
