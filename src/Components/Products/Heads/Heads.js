@@ -11,11 +11,14 @@ export default class Heads extends Component {
   }
 
   componentDidMount = () => {
+    this.getHeads();
+  };
+  getHeads = () => {
     axios
       .get("/api/heads")
-      .then(res => {
+      .then(response => {
         this.setState({
-          heads: res.data
+          heads: response.data
         });
       })
       .catch(err => {
@@ -25,9 +28,7 @@ export default class Heads extends Component {
 
   deleteHeads = id => {
     axios.delete(`/api/heads/${id}`).then(response => {
-      this.setState({
-        heads: response.data
-      });
+      this.getHeads();
     });
   };
   render() {

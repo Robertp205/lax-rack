@@ -11,11 +11,14 @@ export default class Elbows extends Component {
   }
 
   componentDidMount = () => {
+    this.getElbows();
+  };
+  getElbows = () => {
     axios
       .get("/api/elbows")
-      .then(res => {
+      .then(response => {
         this.setState({
-          elbows: res.data
+          elbows: response.data
         });
       })
       .catch(err => {
@@ -25,9 +28,7 @@ export default class Elbows extends Component {
 
   deleteElbows = id => {
     axios.delete(`/api/elbows/${id}`).then(response => {
-      this.setState({
-        elbows: response.data
-      });
+      this.getElbows();
     });
   };
   render() {
@@ -48,7 +49,7 @@ export default class Elbows extends Component {
             <p> Price: {element.price}</p>
 
             <button>Update</button>
-            <button>Delete</button>
+            <button onClick={()=>this.deleteElbows(element.id)}>Delete</button>
           </div>
         </div>
       );

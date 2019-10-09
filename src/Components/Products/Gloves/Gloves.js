@@ -10,11 +10,14 @@ export default class Gloves extends Component {
   }
 
   componentDidMount = () => {
+    this.getGloves();
+  };
+  getGloves = () => {
     axios
       .get("/api/gloves")
-      .then(res => {
+      .then(response => {
         this.setState({
-          gloves: res.data
+          hgloves: response.data
         });
       })
       .catch(err => {
@@ -24,9 +27,7 @@ export default class Gloves extends Component {
 
   deleteGloves = id => {
     axios.delete(`/api/gloves/${id}`).then(response => {
-      this.setState({
-        gloves: response.data
-      });
+      this.getGloves();
     });
   };
   render() {
@@ -47,7 +48,7 @@ export default class Gloves extends Component {
             <p> Price: {element.price}</p>
 
             <button>Update</button>
-            <button>Delete</button>
+            <button onClick={()=>this.deleteGloves(element.id)}>Delete</button>
           </div>
         </div>
       );

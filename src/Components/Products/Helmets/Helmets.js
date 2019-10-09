@@ -11,62 +11,26 @@ export default class Helmets extends Component {
   }
 
   componentDidMount = () => {
-
-    this.getHelmets()
-    // axios
-    //   .get("/api/helmet")
-    //   .then(res => {
-    //     this.setState({
-    //       helmets: res.data
-    //     });
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   });
+    this.getHelmets();
   };
-  getHelmets=()=>{
-    axios.get('/api/helmet').then((response)=>{
-      this.setState({
-        helmets: response.data
+  getHelmets = () => {
+    axios
+      .get("/api/helmet")
+      .then(response => {
+        this.setState({
+          helmets: response.data
+        });
       })
-    }).catch(err =>{
-      console.log(err)
-  })
-  }
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
-
-  
-  deleteHelmets = (id) => {
-    axios.delete(`/api/helmet/${id}`).then(response =>{
-      this.setState({
-        helmets: response.data
-      })
-    })
-
-
-    // axios.delete(`/api/helmet/${id}`)
-    // .then(res=>{
-    //   this.getHelmets()
-    // }).catch(error=> {
-    //   console.log('error');
-      
-    // })
-    // // .then(response => {
-    // //   this.setState({
-    // //     helmets: response.data
-    // //   });
-    // //   console.log(response.data);
-      
-    
-    };
-
-  //   async componentDidMount() {
-  //     const helmets = await axios.get("/api/helmets");
-
-  //     this.setState({
-  //       helmets: helmets.data
-  //     });
-  //   }
+  deleteHelmets = id => {
+    axios.delete(`/api/helmet/${id}`).then(response => {
+      this.getHelmets();
+    });
+  };
 
   render() {
     const mappedHelmets = this.state.helmets.map(element => {
@@ -86,7 +50,9 @@ export default class Helmets extends Component {
             <p> Price: {element.price}</p>
 
             <button>Update</button>
-            <button  onClick={()=> this.deleteHelmets(element.id)}>Delete</button>
+            <button onClick={() => this.deleteHelmets(element.id)}>
+              Delete
+            </button>
           </div>
         </div>
       );

@@ -11,11 +11,14 @@ export default class Shafts extends Component {
   }
 
   componentDidMount = () => {
+    this.getShafts();
+  };
+  getShafts = () => {
     axios
       .get("/api/shafts")
-      .then(res => {
+      .then(response => {
         this.setState({
-          shafts: res.data
+          shafts: response.data
         });
       })
       .catch(err => {
@@ -25,9 +28,7 @@ export default class Shafts extends Component {
 
   deleteShafts = id => {
     axios.delete(`/api/shafts/${id}`).then(response => {
-      this.setState({
-        shafts: response.data
-      });
+      this.getShafts();
     });
   };
 
@@ -49,7 +50,7 @@ export default class Shafts extends Component {
             <p> Price: {element.price}</p>
 
             <button>Update</button>
-            <button>Delete</button>
+            <button onClick={()=>this.deleteShafts(element.id)}>Delete</button>
           </div>
         </div>
       );

@@ -30,7 +30,7 @@ export default class Register extends Component {
   render() {
     return (
       <div className="register-page">
-        <div className="auth-box">
+        <div className="reg-box">
           <h1>Register User</h1>
           <div className="auth-items">
             <p>Username:</p>
