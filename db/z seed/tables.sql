@@ -14,6 +14,11 @@ CREATE TABLE users (
     is_admin BOOLEAN
     
 );
+CREATE TABLE users_login (
+	user_login_id SERIAL PRIMARY KEY,
+	user_id INT REFERENCES users(id),
+	hash TEXT
+);
 
 CREATE TABLE elbows (
     id SERIAL PRIMARY KEY,

@@ -28,6 +28,8 @@ app.use(session({
 }))
 
 // ENDPOINTS
+// REGISTER N LOGIN N LOGOUT
+app.post('/api/register', authCTRL.register)
 
 // GET
 app.get('/api/helmet', prodCTRL.getHelmets)
@@ -38,12 +40,12 @@ app.get('/api/gloves', prodCTRL.getGloves)
 app.get('/api/elbows', prodCTRL.getElbows)
 
 // Post
-app.post('api/helmet',prodCTRL)
-app.post('api/shoulders', prodCTRL)
-app.post('/api/shafts', prodCTRL)
-app.post('/api/heads', prodCTRL)
-app.post('/api/gloves', prodCTRL)
-app.post('/api/elbows' , prodCTRL)
+// app.post('api/helmet',prodCTRL.postHelmets)
+// app.post('api/shoulders', prodCTRL.postShoulder)
+// app.post('/api/shafts', prodCTRL.postShafts)
+// app.post('/api/heads', prodCTRL.postHeads)
+// app.post('/api/gloves', prodCTRL.postGloves)
+// app.post('/api/elbows' , prodCTRL.postElbows)
 // PUT
 app.put('/api/helmet/:id', prodCTRL.updateHelmets)
 app.put('/api/shoulders/:id', prodCTRL.updateShoulders)

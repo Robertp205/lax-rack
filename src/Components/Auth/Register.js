@@ -8,6 +8,7 @@ export default class Register extends Component {
         super()
         this.state = {
             username: '',
+            email: '',
             password1: '',
             password2: ''
         }
@@ -24,6 +25,7 @@ export default class Register extends Component {
     resetState = ()=> {
         console.log('hit')
         this.setState({username: ''})
+        this.setState({email: ''})
         this.setState({password1: ''})
         this.setState({password2:''})
     }
@@ -35,6 +37,8 @@ export default class Register extends Component {
           <div className="auth-items">
             <p>Username:</p>
             <input onChange={e=> this.handleChange(e,'username')} />
+            <p>Email:</p>
+            <input type='email' onChange={e=> this.handleChange(e,'email')} />
             <p>Password:</p>
             <input type='password' onChange={e=> this.handleChange(e,'password1')} />
             <p> Re-enter Password:</p>
