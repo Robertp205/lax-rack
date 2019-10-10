@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Register.css";
 import "../../App.css"
+import axios from 'axios'
+import swal from 'sweetalert'
+// import updateUser from '../../redux/reducer'
+// import {connect} from 'react-redux'
 
 export default class Register extends Component {
     constructor(){
@@ -12,6 +16,19 @@ export default class Register extends Component {
             password1: '',
             password2: ''
         }
+    }
+
+    async register() {
+      const {email, username, password1, password2} = this.state
+      if (password1 === password2) {
+        const res = await axios.post('/auth/register', {username, email,  password: password2})
+        this.props.updateUser(res.data.user)
+        console.log(res.data.user);
+        
+        swal({icon: 'success', text: res.data.message})
+      } else {
+        swal({icon: 'error', text: `lol youre passwords are the different`})
+      }
     }
 
     handleChange = async (e, key) => {
@@ -49,7 +66,7 @@ export default class Register extends Component {
             <button onClick={()=> this.resetState()}>Back</button>
               </Link>
             <Link to="/dashboard">
-              <button>Register</button>
+              <button onClick={()=> this.register()}>Register</button>
             </Link>
           </div>
         </div>
@@ -57,3 +74,6 @@ export default class Register extends Component {
     );
   }
 }
+
+
+// export default connect({updateUser})(Register)

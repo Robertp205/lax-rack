@@ -24,4 +24,5 @@ module.exports = {
     };
     res.status(201).send({ message: "Logged in :)", user: req.session.user });
   }
+  
 };

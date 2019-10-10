@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
+import updateUser from '../../redux/reducer'
+import {connect} from 'react-redux'
+
+// import {updateUser} from '../../ducks/reducer'
+
+// import {connect} from 'react-redux'
+
+
 
 export default class Login extends Component {
   constructor(){
