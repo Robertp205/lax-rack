@@ -10,7 +10,7 @@ export default class Dashboard extends Component {
 
           <Link to="/elbows">
         <div className="product-box">
-            <h3>Elbows</h3>
+            <h3>Elbow Guards</h3>
         </div>
           </Link>
           <Link to="gloves">

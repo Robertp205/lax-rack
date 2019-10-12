@@ -1,5 +1,5 @@
 INSERT INTO users 
-(name, email, is_admin)
+(username, email, is_admin)
 VALUES 
-(${name}, ${email}, false)
+(${username}, ${email}, false)
 RETURNING id;

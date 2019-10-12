@@ -1,4 +1,4 @@
-SELECT u.id, name, email, is_admin, hash 
+SELECT u.id, username, hash 
 FROM users u
 JOIN users_login ul ON u.id = ul.user_id
-WHERE email = $1
+WHERE username = $1

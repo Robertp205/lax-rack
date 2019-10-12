@@ -1,11 +1,11 @@
 .reg-box{
     color: whitesmoke;
-    height: 50vh;
+    height: 70vh;
     width: 25vw;
     border: 10px solid black;
     display: flex;
     justify-content: center;
-    margin: 20vh auto;
+    margin: auto auto;
     flex-direction: column;
     align-items: center;
     border-radius: 25px

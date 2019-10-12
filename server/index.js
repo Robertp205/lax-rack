@@ -29,7 +29,9 @@ app.use(session({
 
 // ENDPOINTS
 // REGISTER N LOGIN N LOGOUT
-app.post('/api/register', authCTRL.register)
+app.post('/auth/register', authCTRL.register)
+app.post('/auth/login', authCTRL.login)
+app.delete('/auth/logout', authCTRL.logout)
 
 // GET
 app.get('/api/helmet', prodCTRL.getHelmets)

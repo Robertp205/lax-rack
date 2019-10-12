@@ -1,27 +1,27 @@
 module.exports = {
   async getHelmets(req, res) {
     const db = req.app.get("db");
-    const helmets = await db.get.get_helmets();
+    const helmets = await db.getter.get_helmets();
     res.status(200).send(helmets);
   },
   async getShoulders(req, res) {
     const db = req.app.get("db");
-    const shoulders = await db.get.get_shoulders();
+    const shoulders = await db.getter.get_shoulders();
     res.status(200).send(shoulders);
   },
   async getGloves(req, res) {
     const db = req.app.get("db");
-    const gloves = await db.get.get_gloves();
+    const gloves = await db.getter.get_gloves();
     res.status(200).send(gloves);
   },
   async getShafts(req, res) {
     const db = req.app.get("db");
-    const shafts = await db.get.get_shafts();
+    const shafts = await db.getter.get_shafts();
     res.status(200).send(shafts);
   },
   async getElbows(req, res) {
     const db = req.app.get("db");
-    const elbows = await db.get.get_elbows();
+    const elbows = await db.getter.get_elbows();
     res.status(200).send(elbows);
   },
   async getHeads(req, res) {
@@ -96,10 +96,14 @@ module.exports = {
     })
   },
   updateHelmets: (req, res)=>{
-    const {id} = req.params;
-    const {price} = req.body
     const db = req.app.get('db')
-    db.update.update_helmets([price, id]).then(result => {
+    const {id} = req.params;
+    const {img, brand, name, used, price} = req.body
+    console.log(req.body);
+    console.log(req.params);
+    
+    
+    db.updates.update_helmets({img, brand, name, used, price, id}).then(result => {
         res.status(200).send(result)
     })
   },
