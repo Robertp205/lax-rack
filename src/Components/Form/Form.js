@@ -59,10 +59,17 @@ export default class Form extends Component {
           />
           {/* DROPDOWN FOR BOOLEAN AS WELL */}
           <h3>New or Used</h3>
-          <input
+          <p>
+            <select onChange={e => this.handleChange(e, "used")}>
+              <option value="used">New</option>
+              <option value="used">Used</option>
+            </select>
+          </p>
+          {/* <input
             placeholder="used"
             onChange={e => this.handleChange(e, "used")}
-          />
+            
+          /> */}
           <h3>Price</h3>
           <input
             placeholder="Price"

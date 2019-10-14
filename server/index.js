@@ -3,7 +3,9 @@ const express = require('express'),
         massive = require('massive'),
         cors = require('cors'),
         session = require('express-session'),
-        chalk = require('chalk')
+        chalk = require('chalk'),
+        bodyParser = require('body-parser'),
+        socket = require('socket.io')
 
 const authCTRL = require('./controllers/authController')
 const prodCTRL = require('./controllers/productControllers')
@@ -14,8 +16,24 @@ const {
     SESSION_SECRET
 } = process.env
 
-const app = express()
+const app = express(),
+    io = socket(
+        app.listen(SERVER_PORT, ()=> console.log(chalk.cyan("Server is on mLord")
+))
+    )
 
+
+
+
+
+
+
+
+
+
+
+
+    
 app.use(express.json())
 app.use(cors())
 app.use(session({
@@ -75,6 +93,38 @@ massive(CONNECTION_STRING)
     .catch(error=> console.log(chalk.red('database connection severed'))
     )
 
-app.listen(SERVER_PORT, ()=> console.log(chalk.cyan("Server is on mLord")
-))
 
+
+    io.on("connection", socket => {
+        console.log("User Connected");
+        socket.on("join room", async data => {
+            const { room } = data;
+            const db = app.get("db");
+            console.log("Room joined", room);
+            let existingRoom = await db.check_room({ id: room });
+            !existingRoom.length ? db.create_room({ id: room }) : null;
+            let messages = await db.fetch_message_history({ id: room });
+            socket.join(room);
+            io.to(room).emit("room joined", messages);
+          });
+        
+          socket.on("message sent", async data => {
+            const { room, message } = data;
+            const db = app.get("db");
+            await db.create_message({ id: room, message });
+            let messages = await db.fetch_message_history({ id: room });
+            io.to(data.room).emit("message dispatched", messages);
+          });
+        
+        
+        
+          socket.on("disconnect", () => {
+        
+            console.log("User Disconnected");
+        
+          });
+    
+    
+    
+    
+    })
