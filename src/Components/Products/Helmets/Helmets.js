@@ -106,6 +106,9 @@ export default class Helmets extends Component {
                   Delete
                 </button>
                 <button onClick={this.handleToggle}>update</button>
+                <div>
+                
+                </div>
 
                 {/* <button onClick={() => this.deleteHelmets(element.id)}>
               Delete
@@ -157,6 +160,9 @@ export default class Helmets extends Component {
       );
     });
 
-    return <div className="yeet">{mappedHelmets}</div>;
+    return <div className="yeet">
+    {mappedHelmets}
+    <button className='boxes'>chat</button>
+    </div>;
   }
 }

@@ -13,7 +13,8 @@
     max-width: 1000px;
     margin: 0 auto;
     border: 5px solid black;
-    color: whitesmoke
+    color: whitesmoke;
+    border-radius:10px
 } 
 .boxes img {
     width: auto;
@@ -41,4 +42,13 @@
 }
 .inbox > btn{
   margin-top: 30px
+}
+
+@media(min-width:787px){
+  .boxes{
+    display: flex;
+    border: 8px solid black;
+    width: 60vw;
+    border-radius: 10%;
+  }
 }

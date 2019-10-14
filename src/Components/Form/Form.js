@@ -4,12 +4,6 @@ export default class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      helmets: [],
-      shoulder_pads: [],
-      gloves: [],
-      shafts: [],
-      heads: [],
-      elbows: [],
       img: "",
       brand: "",
       name: "",
@@ -25,6 +19,11 @@ export default class Form extends Component {
     });
   };
 
+  addPost = ()=>{
+    
+
+ }
+
   render() {
     return (
       <div className="form-box">
@@ -32,10 +31,10 @@ export default class Form extends Component {
           <h1>LAX RACK</h1>
           {/* NEED  */}
           <p>
-            <select className="dropdown" name='yeet' >
+            <select onChange={e => this.handleChange(e, e.target.value)}  className="dropdown" name='yeet' >
               <option> </option>
-              <option onClick={e => this.handleChange(e, "helmets")} value="helmets">Helmets</option>
-              <option value="shoulder_pads">SHoulder Pads</option>
+              <option  value="helmets">Helmets</option>
+              <option value="shoulder_pads">Shoulder Pads</option>
               <option value="elbows">Elbow Guards</option>
               <option value="gloves">Gloves</option>
               <option value="heads">Heads</option>
@@ -61,7 +60,7 @@ export default class Form extends Component {
           <h3>New or Used</h3>
           <p>
             <select onChange={e => this.handleChange(e, "used")}>
-              <option value="used">New</option>
+              <option value="new">New</option>
               <option value="used">Used</option>
             </select>
           </p>

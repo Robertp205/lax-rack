@@ -101,9 +101,9 @@ massive(CONNECTION_STRING)
             const { room } = data;
             const db = app.get("db");
             console.log("Room joined", room);
-            let existingRoom = await db.check_room({ id: room });
-            !existingRoom.length ? db.create_room({ id: room }) : null;
-            let messages = await db.fetch_message_history({ id: room });
+            let existingRoom = await db.sessions.check_room({ id: room });
+            !existingRoom.length ? db.sessions.create_room({ id: room }) : null;
+            let messages = await db.sessions.fetch_message_history({ id: room });
             socket.join(room);
             io.to(room).emit("room joined", messages);
           });
@@ -111,8 +111,8 @@ massive(CONNECTION_STRING)
           socket.on("message sent", async data => {
             const { room, message } = data;
             const db = app.get("db");
-            await db.create_message({ id: room, message });
-            let messages = await db.fetch_message_history({ id: room });
+            await db.sessions.create_message({ id: room, message });
+            let messages = await db.sessions.fetch_message_history({ id: room });
             io.to(data.room).emit("message dispatched", messages);
           });
         
