@@ -13,7 +13,8 @@ import {connect} from 'react-redux'
 
 
 const linkStyle = {
-    color: 'yellow'
+    color: '#255329',
+    
     
 };
 
@@ -30,7 +31,7 @@ class Nav extends Component {
     return (
       <div className="navbar">
         <div className='words'>
-        <NavLink style={linkStyle} exact to='/dashboard' activeClassName="active">
+        <NavLink style={linkStyle} exact to='/dashboard' activeClassName="active" className='lol'>
             <p>LAX RACK</p>
           </NavLink>
         </div>

@@ -122,5 +122,41 @@ module.exports = {
     db.update.update_shoulders([price, id]).then(result => {
         res.status(200).send(result)
     })
+  },
+  async postHelmets (req,res){
+    const{brand, name, used, price, img} = req.body
+    const db = req.app.get('db')
+    const helmets = await db.post.post_helmets([brand, name, used, price, img])
+    res.status(200).send(helmets)
+  },
+  async postElbows (req,res){
+    const {brand, name, price, img} = req.body
+    const db = req.app.get('db')
+    const elbows = await db.post.post_elbows([brand, name, used, price, img])
+    res.status(200).send(elbows)
+  },
+  async postShoulder (req,res) {
+    const {brand, name, used, price, img} = req.body
+    const db = req.app.get('db')
+    const shoulder_pads = await db.post.post_shoulders([brand, name, used, price, img])
+    res.status(200).send(shoulder_pads)
+  },
+  async postShafts (req,res) {
+    const {brand, name, used, price, img} = req.body
+    const db = req.app.get('db')
+    const shafts = await db.post.post_shafts([brand, name, used, price, img])
+    res.status(200).send(shafts)
+  },
+  async postGloves (req,res) {
+    const {brand, name, used, price, img} = req.body
+    const db = req.app.get('db')
+    const gloves = await db.post.post_gloves([brand, name, used, price, img])
+    res.status(200).send(gloves)
+  },
+  async postHeads (req,res) {
+    const {brand, name, used, price, img} = req.body
+    const db = req.app.get('db')
+    const heads = await db.post.heads([brand, name, used, price, img])
+    res.status(200).send(heads)
   }
 };

@@ -6,6 +6,7 @@ const express = require('express'),
         chalk = require('chalk'),
         bodyParser = require('body-parser'),
         socket = require('socket.io')
+        
 
 const authCTRL = require('./controllers/authController')
 const prodCTRL = require('./controllers/productControllers')
@@ -15,6 +16,7 @@ const {
     CONNECTION_STRING,
     SESSION_SECRET
 } = process.env
+
 
 const app = express(),
     io = socket(
@@ -60,12 +62,12 @@ app.get('/api/gloves', prodCTRL.getGloves)
 app.get('/api/elbows', prodCTRL.getElbows)
 
 // Post
-// app.post('api/helmet',prodCTRL.postHelmets)
-// app.post('api/shoulders', prodCTRL.postShoulder)
-// app.post('/api/shafts', prodCTRL.postShafts)
-// app.post('/api/heads', prodCTRL.postHeads)
-// app.post('/api/gloves', prodCTRL.postGloves)
-// app.post('/api/elbows' , prodCTRL.postElbows)
+app.post('/api/helmet',prodCTRL.postHelmets)
+app.post('api/shoulders', prodCTRL.postShoulder)
+app.post('/api/shafts', prodCTRL.postShafts)
+app.post('/api/heads', prodCTRL.postHeads)
+app.post('/api/gloves', prodCTRL.postGloves)
+app.post('/api/elbows' , prodCTRL.postElbows)
 // PUT
 app.put('/api/helmet/:id', prodCTRL.updateHelmets)
 app.put('/api/shoulders/:id', prodCTRL.updateShoulders)
@@ -83,6 +85,8 @@ app.delete('/api/helmet/:id', prodCTRL.deleteHelmets)
 app.delete('/api/shafts/:id',prodCTRL.deleteShafts)
 app.delete('/api/elbows/:id',prodCTRL.deleteElbows)
 
+// TO HOST
+app.use( express.static( `${__dirname}/../build` ) );
 
 massive(CONNECTION_STRING)
     .then(db =>{

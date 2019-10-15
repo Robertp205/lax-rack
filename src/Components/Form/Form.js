@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Form.css";
+import axios from "axios";
 export default class Form extends Component {
   constructor(props) {
     super(props);
@@ -19,10 +20,48 @@ export default class Form extends Component {
     });
   };
 
-  addPost = ()=>{
-    
+  postHelmets = ()=>{
+    axios.post('/api/helmet', {img: this.state.img, brand: this.state.brand, name: this.state.name,
+    used: this.state.used, price: this.state.price}).then(res => {'happy day'})
 
  }
+ postElbows = ()=>{
+  axios.post('/api/elbows', {img: this.state.img, brand: this.state.brand, name: this.state.name,
+  used: this.state.used, price: this.state.price}).then(res => {'happy day'})
+
+}
+postShoulder = ()=>{
+  axios.post('/api/shoulders', {img: this.state.img, brand: this.state.brand, name: this.state.name,
+  used: this.state.used, price: this.state.price}).then(res => {'happy day'})
+
+}
+postShafts = ()=>{
+  axios.post('/api/shafts', {img: this.state.img, brand: this.state.brand, name: this.state.name,
+  used: this.state.used, price: this.state.price}).then(res => {'happy day'})
+
+}
+postGloves = ()=>{
+  axios.post('/api/gloves', {img: this.state.img, brand: this.state.brand, name: this.state.name,
+  used: this.state.used, price: this.state.price}).then(res => {'happy day'})
+
+}
+postHeads = ()=>{
+  axios.post('/api/heads', {img: this.state.img, brand: this.state.brand, name: this.state.name,
+  used: this.state.used, price: this.state.price}).then(res => {'happy day'})
+
+}
+
+
+//  handleAddPet = () => {
+//   axios.post('/api/pets',  {name: this.state.petName, image: this.state.petImage})
+//  .then(res => {
+//      this.setState({
+//          pets: res.data
+//      })
+//  })
+//  this.setState({petName: ''})
+//  this.setState({petImage: ''})
+// }
 
   render() {
     return (
@@ -77,7 +116,7 @@ export default class Form extends Component {
         </div>
         <div className="add-cancel-btn">
           <button>cancel</button>
-          <button>Add</button>
+          <button onClick={this.postHelmets}>Add</button>
         </div>
       </div>
     );
