@@ -22,7 +22,7 @@ export default class Form extends Component {
 
   postHelmets = ()=>{
     axios.post('/api/helmet', {img: this.state.img, brand: this.state.brand, name: this.state.name,
-    used: this.state.used, price: this.state.price}).then(res => {'happy day'})
+    used: this.state.used, price: this.state.price}).then(res => this.props.history.push('/helmets'))
 
  }
  postElbows = ()=>{

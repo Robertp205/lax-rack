@@ -61,7 +61,7 @@ class Register extends Component {
     return (
       <div className="register-page">
         <div className="reg-box">
-          <h1>Register User</h1>
+          <h6>Register User</h6>
           <div className="auth-items">
             <p>Username:</p>
             <input

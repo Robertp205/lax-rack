@@ -27,6 +27,11 @@
     
 
 }
+.auth-box > h1 {
+    
+        font-size:40px
+    
+}
 
 @media(max-width: 500px){
     .auth-box{

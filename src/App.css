@@ -1,9 +1,9 @@
 body{
-  background:  rgb(54, 53, 53);
+  background:  rgb(78, 78, 78);
 }
 
 .app{
   min-height: 150vh;
   max-width:100vw;
-  background: rgb(54, 53, 53)
+  background: rgb(78, 78, 78)
 }

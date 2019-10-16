@@ -26,7 +26,7 @@ module.exports = {
       userId: userId[0].id,
       isAdmin: false
     };
-    res.status(201).send({ message: "Logged in :)", user: req.session.user });
+    res.status(201).send({  user: req.session.user });
   },
 
   async login(req, res) {
