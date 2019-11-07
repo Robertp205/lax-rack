@@ -15,6 +15,7 @@ export default class Helmets extends Component {
       used: Boolean,
       price: 0
     };
+    this.getHelmets = this.getHelmets.bind(this);
   }
 
   handleToggle = () => {
@@ -63,7 +64,7 @@ export default class Helmets extends Component {
   componentDidMount = () => {
     this.getHelmets();
   };
-  getHelmets = () => {
+  getHelmets() {
     axios
       .get("/api/helmet")
       .then(response => {
@@ -74,7 +75,9 @@ export default class Helmets extends Component {
       .catch(err => {
         console.log(err);
       });
-  };
+  }
+
+  
 
   deleteHelmets = id => {
     axios.delete(`/api/helmet/${id}`).then(response => {
@@ -106,9 +109,7 @@ export default class Helmets extends Component {
                   Delete
                 </button>
                 <button onClick={this.handleToggle}>update</button>
-                <div>
-                
-                </div>
+                <div></div>
 
                 {/* <button onClick={() => this.deleteHelmets(element.id)}>
               Delete
@@ -160,9 +161,11 @@ export default class Helmets extends Component {
       );
     });
 
-    return <div className="yeet">
-    {mappedHelmets}
-    <button className='boxes'>chat</button>
-    </div>;
+    return (
+      <div className="yeet">
+        {mappedHelmets}
+        <button className="boxes">chat</button>
+      </div>
+    );
   }
 }

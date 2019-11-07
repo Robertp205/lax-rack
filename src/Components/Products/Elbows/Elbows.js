@@ -31,6 +31,22 @@ export default class Elbows extends Component {
       this.getElbows();
     });
   };
+  updateElbows = id => {
+    let updatedElbows = {
+      id: this.state.id,
+      img: this.state.img,
+      brand: this.state.brand,
+      name: this.state.name,
+      used: this.state.used,
+      price: this.state.price
+    };
+    axios.put(`/api/elbows/${id}`, updatedElbows).then(res => {
+      // this.props.updatedHelmet(res.data);
+      this.handleToggle();
+      this.getElbows();
+    });
+  };
+
   render() {
     const mappedElbows = this.state.elbows.map(element => {
       return (

@@ -31,6 +31,22 @@ export default class ShoulderPads extends Component {
       this.getShoulders();
     });
   };
+  updateShoulders = id => {
+    let updatedHelmet = {
+      id: this.state.id,
+      img: this.state.img,
+      brand: this.state.brand,
+      name: this.state.name,
+      used: this.state.used,
+      price: this.state.price
+    };
+    axios.put(`/api/shoulders/${id}`, updatedHelmet).then(res => {
+      // this.props.updatedHelmet(res.data);
+      this.handleToggle();
+      this.getShoulders();
+    });
+  };
+
   render() {
     const mappedShoulders = this.state.shoulder_pads.map(element => {
       return (
@@ -48,7 +64,7 @@ export default class ShoulderPads extends Component {
             <p> used: {element.used}</p>
             <p> Price: {element.price}</p>
 
-            <button>Update</button>
+            <button onClick={this.handleToggle}>Update</button>
             <button onClick={() => this.deleteShoulders(element.id)}>Delete</button>
           </div>
         </div>

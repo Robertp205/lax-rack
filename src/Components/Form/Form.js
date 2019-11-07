@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Form.css";
 import axios from "axios";
+import swal from "sweetalert";
 export default class Form extends Component {
   constructor(props) {
     super(props);
@@ -19,49 +20,114 @@ export default class Form extends Component {
       [key]: e.target.value
     });
   };
+  handleThing = () => {
+    switch (this.e.target.value) {
+      case "helmets":
+        this.postHelmets();
+        console.log('yeet');
+        
+        break;
+      case  "elbows":
+        this.postElbows();
+        console.log('yeet2');
+        
+        break;
+      case "shoulder_pads":
+        this.postShoulder();
+        console.log();
+        
+        break;
+      case  "shafts":
+        this.postShafts();
+        break;
+      case  "heads":
+        this.postHeads();
+        break;
+      case  "gloves":
+        this.postGloves();
+        break;
+      default:
+        return swal({ icon: "error", text: "please select a category" });
+    }
+  };
 
-  postHelmets = ()=>{
-    axios.post('/api/helmet', {img: this.state.img, brand: this.state.brand, name: this.state.name,
-    used: this.state.used, price: this.state.price}).then(res => this.props.history.push('/helmets'))
+  
+  postElbows = () => {
+    axios
+      .post("/api/elbows", {
+        img: this.state.img,
+        brand: this.state.brand,
+        name: this.state.name,
+        used: this.state.used,
+        price: this.state.price
+      })
+      .then(res => {
+        "happy day";
+      });
+  };
+  postShoulder = () => {
+    axios
+      .post("/api/shoulders", {
+        img: this.state.img,
+        brand: this.state.brand,
+        name: this.state.name,
+        used: this.state.used,
+        price: this.state.price
+      })
+      .then(res => {
+        "happy day";
+      });
+  };
+  postShafts = () => {
+    axios
+      .post("/api/shafts", {
+        img: this.state.img,
+        brand: this.state.brand,
+        name: this.state.name,
+        used: this.state.used,
+        price: this.state.price
+      })
+      .then(res => {
+        "happy day";
+      });
+  };
+  postGloves = () => {
+    axios
+      .post("/api/gloves", {
+        img: this.state.img,
+        brand: this.state.brand,
+        name: this.state.name,
+        used: this.state.used,
+        price: this.state.price
+      })
+      .then(res => {
+        "happy day";
+      });
+  };
+  postHeads = () => {
+    axios
+      .post("/api/heads", {
+        img: this.state.img,
+        brand: this.state.brand,
+        name: this.state.name,
+        used: this.state.used,
+        price: this.state.price
+      })
+      .then(res => {
+        "happy day";
+      });
+  };
 
- }
- postElbows = ()=>{
-  axios.post('/api/elbows', {img: this.state.img, brand: this.state.brand, name: this.state.name,
-  used: this.state.used, price: this.state.price}).then(res => {'happy day'})
-
-}
-postShoulder = ()=>{
-  axios.post('/api/shoulders', {img: this.state.img, brand: this.state.brand, name: this.state.name,
-  used: this.state.used, price: this.state.price}).then(res => {'happy day'})
-
-}
-postShafts = ()=>{
-  axios.post('/api/shafts', {img: this.state.img, brand: this.state.brand, name: this.state.name,
-  used: this.state.used, price: this.state.price}).then(res => {'happy day'})
-
-}
-postGloves = ()=>{
-  axios.post('/api/gloves', {img: this.state.img, brand: this.state.brand, name: this.state.name,
-  used: this.state.used, price: this.state.price}).then(res => {'happy day'})
-
-}
-postHeads = ()=>{
-  axios.post('/api/heads', {img: this.state.img, brand: this.state.brand, name: this.state.name,
-  used: this.state.used, price: this.state.price}).then(res => {'happy day'})
-
-}
-
-
-//  handleAddPet = () => {
-//   axios.post('/api/pets',  {name: this.state.petName, image: this.state.petImage})
-//  .then(res => {
-//      this.setState({
-//          pets: res.data
-//      })
-//  })
-//  this.setState({petName: ''})
-//  this.setState({petImage: ''})
-// }
+  //  handleAddPet = () => {
+  //   axios.post('/api/pets',  {name: this.state.petName, image: this.state.petImage})
+  //  .then(res => {
+  //      this.setState({
+  //          pets: res.data
+  //      })
+  //  })
+  //  this.setState({petName: ''})
+  //  this.setState({petImage: ''})
+  // }
 
   render() {
     return (
@@ -70,9 +136,13 @@ postHeads = ()=>{
           <h1>LAX RACK</h1>
           {/* NEED  */}
           <p>
-            <select onChange={e => this.handleChange(e, e.target.value)}  className="dropdown" name='yeet' >
+            <select
+              onChange={e => this.handleChange(e, e.target.value)}
+              className="dropdown"
+              name="yeet"
+            >
               <option> </option>
-              <option  value="helmets">Helmets</option>
+              <option value="helmets">Helmets</option>
               <option value="shoulder_pads">Shoulder Pads</option>
               <option value="elbows">Elbow Guards</option>
               <option value="gloves">Gloves</option>
@@ -116,7 +186,7 @@ postHeads = ()=>{
         </div>
         <div className="add-cancel-btn">
           <button>cancel</button>
-          <button onClick={this.postHelmets}>Add</button>
+          <button onClick={this.handleThing}>Add</button>
         </div>
       </div>
     );

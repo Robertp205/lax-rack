@@ -31,6 +31,23 @@ export default class Heads extends Component {
       this.getHeads();
     });
   };
+
+  updateHeads = id => {
+    let updatedHead = {
+      id: this.state.id,
+      img: this.state.img,
+      brand: this.state.brand,
+      name: this.state.name,
+      used: this.state.used,
+      price: this.state.price
+    };
+    axios.put(`/api/heads/${id}`, updatedHead).then(res => {
+      // this.props.updatedHelmet(res.data);
+      this.handleToggle();
+      this.getHeads();
+    });
+  };
+
   render() {
     const mappedHeads = this.state.heads.map(element => {
         return (

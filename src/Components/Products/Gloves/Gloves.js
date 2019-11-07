@@ -30,6 +30,22 @@ export default class Gloves extends Component {
       this.getGloves();
     });
   };
+  updateGloves = id => {
+    let updatedGloves = {
+      id: this.state.id,
+      img: this.state.img,
+      brand: this.state.brand,
+      name: this.state.name,
+      used: this.state.used,
+      price: this.state.price
+    };
+    axios.put(`/api/gloves/${id}`, updatedGloves).then(res => {
+      // this.props.updatedHelmet(res.data);
+      this.handleToggle();
+      this.getGloves();
+    });
+  };
+
   render() {
     const mappedGloves = this.state.gloves.map(element => {
       return (

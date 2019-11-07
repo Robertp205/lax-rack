@@ -31,6 +31,22 @@ export default class Shafts extends Component {
       this.getShafts();
     });
   };
+  updateShafts = id => {
+    let updatedShafts = {
+      id: this.state.id,
+      img: this.state.img,
+      brand: this.state.brand,
+      name: this.state.name,
+      used: this.state.used,
+      price: this.state.price
+    };
+    axios.put(`/api/shafts/${id}`, updatedShafts).then(res => {
+      // this.props.updatedHelmet(res.data);
+      this.handleToggle();
+      this.getShafts();
+    });
+  };
+
 
   render() {
     const mappedShafts = this.state.shafts.map(element => {
